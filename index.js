@@ -13,17 +13,13 @@ function upload(response){
 }
 app.get("/", function(req, res){
     start(res);
-});
-app.get("/start", function(req, res){
+}).get("/start", function(req, res){
     start(res);
-});
-app.get("/upload", function(req, res){
+}).get("/upload", function(req, res){
     upload(res);
-});
-app.use(function(req, res){
+}).use(function(req, res){
     res.setHeader("Content-Type", "text/plain");
     res.send(404, "Page not found");
-});
-app.listen(3000, function(){
+}).listen(3000, function(){
     console.log("App listening on port 3000!");
 });
