@@ -1,5 +1,6 @@
 var express = require("express")
 var app=express();
+app.set("view engine", "jade");
 
 function start(response){
     console.log("Le gestionnaire 'start' est appelé.");
@@ -12,14 +13,18 @@ function upload(response){
     response.send("Bonjour Upload - Rafraîchi");
 }
 app.get("/", function(req, res){
+    res.render("index", {title:"Hey", message:"Hello there!", youAreUsingJade:true});
+})
+.get("/start", function(req, res){
     start(res);
-}).get("/start", function(req, res){
-    start(res);
-}).get("/upload", function(req, res){
+})
+.get("/upload", function(req, res){
     upload(res);
-}).use(function(req, res){
+})
+.use(function(req, res){
     res.setHeader("Content-Type", "text/plain");
     res.send(404, "Page not found");
-}).listen(3000, function(){
+})
+.listen(3000, function(){
     console.log("App listening on port 3000!");
 });

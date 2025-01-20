@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title=title
+        script(type="text/javascript").
+            let foo=true;
+            function bar(a){
+                console.log(a);
+            }
+            if(foo){
+                bar(1+5);
+            }
+    body
+        h1=message
+        h1 Jade - Node templating engine 
+        #container.col
+            if youAreUsingJade === true
+                p You are amazing! 
+            else 
+                p Get into it.
+            p.
+                Jade is a terse and simple templating language that 
+                strongly focus on performance and powerful features.
